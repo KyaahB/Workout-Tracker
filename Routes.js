@@ -20,6 +20,7 @@ router.get('/stats', function (req, res) {
 
 // API routes
 
+// create workout
 router.post('/api/workouts', function (req, res) {
 
     Workout.create({})
@@ -33,14 +34,80 @@ router.post('/api/workouts', function (req, res) {
         });
 
 })
+ 
+// update
+// router.put('/api/workouts/id', function (req, res) {
+    
+//     Workout.create({})
+//     .then(dbWorkout => {
+//         console.log(dbWorkout);
 
-router.put('api/workouts', function (req, res) {
-    Workout.save({})
-    .then(dbworkout => {
-        console.log
-    })
+//         res.join(dbWorkout)
+//     })
+//     .catch(({ error}) => {
+//         console.log(error);
+//     });
 
-})
+// })
+
+// update workouts so you can add a new exercise inside of the workout
+
+router.put('/api/workouts/:id', (req, res) => {
+
+    console.log(req.params.id);
+    console.log(req.body)
+    //Calls the update method 
+    Workout.findOneAndUpdate(
+        {
+            // Gets a workout based on the id given
+              _id: req.params.id
+         },
+        {
+            // All the fields you can update and the data attached to the request body.
+            $push: {
+                exercises: req.body
+            }
+        }, 
+        {
+          new: true  
+        }
+      
+    )
+      .then((updatedWorkout) => {
+          console.log(updatedWorkout)
+        res.json(updatedWorkout);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
+  });
+
+
+
+  // route to get ALL workouts
+  router.get("/api/workouts", (req, res) => {
+    Workout.find({})
+    //   .populate("")
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
+  router.get("/api/workouts/range", (req, res) => {
+    Workout.find({})
+    //   .populate("")
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+
 
 
 
