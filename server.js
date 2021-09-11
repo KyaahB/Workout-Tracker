@@ -7,7 +7,7 @@ const db = require('./models');
 
 const PORT = process.env.PORT || 3000;
 
-// const User = require("./seed.js");
+
 
 const app = express();
 

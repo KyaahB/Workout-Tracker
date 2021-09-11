@@ -34,7 +34,7 @@ a:visited {
 
 nav a {
   padding: 18px;
-  transition-property: color, background;
+  transition-property: color, ;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }

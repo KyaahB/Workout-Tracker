@@ -17,6 +17,10 @@ router.get('/stats', function (req, res) {
     res.sendFile(path.join(__dirname, './public/stats.html'))
 })
 
+router.get('/stats', function (req, res) {
+    res.sendFile(path.join(__dirname, './public/stats.html'))
+})
+
 
 // API routes
 
@@ -34,21 +38,6 @@ router.post('/api/workouts', function (req, res) {
         });
 
 })
- 
-// update
-// router.put('/api/workouts/id', function (req, res) {
-    
-//     Workout.create({})
-//     .then(dbWorkout => {
-//         console.log(dbWorkout);
-
-//         res.join(dbWorkout)
-//     })
-//     .catch(({ error}) => {
-//         console.log(error);
-//     });
-
-// })
 
 // update workouts so you can add a new exercise inside of the workout
 
@@ -107,7 +96,6 @@ router.put('/api/workouts/:id', (req, res) => {
         res.json(err);
       });
   });
-
 
 
 
