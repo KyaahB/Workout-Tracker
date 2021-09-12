@@ -105,22 +105,6 @@ function populateChart(data) {
       },
     },
   });
-  // const data = {lineChart, barChart}
-  const totalScore = data.map(({$addFields}))
-   
-  
-  totalScore.aggregate( [
-    {
-      $addFields: {
-        totalWorkout: { $sum: "$duration" } ,
-        totalweight: { $sum: "$pounds" }
-      }
-    },
-    {
-      $addFields: { totalScore:
-        { $add: [ "$totalduration", "$totalpounds", data ] } }
-    }
-  ]) 
 }
 
 
