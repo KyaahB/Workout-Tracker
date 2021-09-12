@@ -29,28 +29,3 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 app.listen(PORT, () => {
 console.log ('app is running')
 })
-
-
-//    Add exercises to the most recent workout plan.
-// app.post("/submit", ({body}, res) => {
-//     db.Workout.create(body)
-//     .then(({_id}) => db.Workout.findOneAndUpdate({}, { $push: { workouts: _id } }, { new: true }))
-//     .then(dbWorkout => {
-//         res.json(dbWorkout);
-//     })
-//     .catch(err => {
-//         res.json(err);
-//     });
-// });
-//    Add new exercises to a new workout plan.
-// db.Workout.create({ name: "New Workout" })
-//   .then(dbWorkout => {
-//     console.log('new workout:', dbWorkout);
-//   })
-//   .catch(({message}) => {
-//     console.log(message);
-//   });
-
-//    View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
-
-//    View the total duration of each workout from the past seven workouts on the `stats` page.
